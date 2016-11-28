@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="moviesApp">
+
+<head>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- angular -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+
+    <!-- custom script (angular app) -->
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+
+<body ng-controller="MoviesController as movies">
+  <ng-pluralize count=movies.movieList.length
+               when="{'0': 'No movies to watch!',
+                      'one': '1 movie to watch.',
+                      'other': '{} movies to watch.'}">
+ </ng-pluralize>
+ <hr>
+    <div ng-repeat="movie in movies.movieList | orderBy:'name'">
+        <p>{{movie.name}}</p>
+    </div>
+
+</body>
+
+</html>
